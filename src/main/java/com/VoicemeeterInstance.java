@@ -1,4 +1,4 @@
-/*
+package com;/*
  * COPYRIGHT: Vincent Burel (c) 2015 All Rights Reserved
  */
 
@@ -10,7 +10,7 @@ import java.util.List;
 
 /**
  * JNA interface modelling the VoicemeeterRemote.h file found in the
- * Voicemeeter Remote API Pack, version 6. All comments been have taken from the
+ * VoiceMeeter.Voicemeeter Remote API Pack, version 6. All comments been have taken from the
  * VoicemeeterRemote.h header file.
  */
 @SuppressWarnings("unused")
@@ -21,19 +21,19 @@ public interface VoicemeeterInstance extends StdCallLibrary {
     //******************************************************************************//
 
     /**
-     * Opens the communication pipe with Voicemeeter. Must be called on software
+     * Opens the communication pipe with VoiceMeeter.Voicemeeter. Must be called on software
      * startup.
      *
      * @return Status code
      *              0:  OK (no error)
-     *              1:  OK, however Voicemeeter is not open
+     *              1:  OK, however VoiceMeeter.Voicemeeter is not open
      *              -1: Cannot get the client
      *              -2: Unexpected login (The client was already logged in)
      */
     int VBVMR_Login();
 
     /**
-     * Closes the communication pipe with Voicemeeter. Must be called on software
+     * Closes the communication pipe with VoiceMeeter.Voicemeeter. Must be called on software
      * shutdown.
      *
      * @return Status code
@@ -42,14 +42,14 @@ public interface VoicemeeterInstance extends StdCallLibrary {
     int VBVMR_Logout();
 
     /**
-     * Run the Voicemeeter application. Gets the directory and runs the program.
+     * Run the VoiceMeeter.Voicemeeter application. Gets the directory and runs the program.
      *
-     * @param type Voicemeeter type.
-     *                  1: Voicemeeter
-     *                  2: Voicemeeter Banana
+     * @param type VoiceMeeter.Voicemeeter type.
+     *                  1: VoiceMeeter.Voicemeeter
+     *                  2: VoiceMeeter.Voicemeeter Banana
      * @return Status code
      *              0:  OK (no error)
-     *              -1: Voicemeeter not installed
+     *              -1: VoiceMeeter.Voicemeeter not installed
      */
     int VBVMR_RunVoicemeeter(int type);
 
@@ -59,11 +59,11 @@ public interface VoicemeeterInstance extends StdCallLibrary {
     //******************************************************************************//
 
     /**
-     * Gets Voicemeeter type.
+     * Gets VoiceMeeter.Voicemeeter type.
      *
      * @param type 32bit long pointer that will receive the type.
-     *                  1: Voicemeeter
-     *                  2: Voicemeeter Banana
+     *                  1: VoiceMeeter.Voicemeeter
+     *                  2: VoiceMeeter.Voicemeeter Banana
      * @return Status code
      *              0:  OK (no error)
      *              -1: Cannot get client
@@ -72,7 +72,7 @@ public interface VoicemeeterInstance extends StdCallLibrary {
     int VBVMR_GetVoicemeeterType(Pointer type);
 
     /**
-     * Gets Voicemeeter version.
+     * Gets VoiceMeeter.Voicemeeter version.
      * @param version 32bit int pointer that will receive the version
      *                v1 = (version & 0xFF000000) >> 24;
      *                v2 = (version & 0x00FF0000) >> 16;
@@ -140,9 +140,9 @@ public interface VoicemeeterInstance extends StdCallLibrary {
     /**
      * Get level data. Not thread safe.
      *
-     * Voicemeeter Channel Assignment:
+     * VoiceMeeter.Voicemeeter Channel Assignment:
      *
-     *      | Strip 1 | Strip 2|              Virtual Input             |
+     *      | VoiceMeeter.VirtualMeeter.Strip 1 | VoiceMeeter.VirtualMeeter.Strip 2|              Virtual Input             |
      *      |---------|--------|----------------------------------------|
      *      | 00 | 01 | 02 | 03 | 04 | 05 | 06 | 07 | 08 | 09 | 10 | 11 |
      *
@@ -150,9 +150,9 @@ public interface VoicemeeterInstance extends StdCallLibrary {
      *      +----+----+----+----+----+----+----+----+----+----+----+----+----+----+----+----+
      *      | 00 | 01 | 02 | 03 | 04 | 05 | 06 | 07 | 08 | 09 | 10 | 11 | 12 | 13 | 14 | 15 |
      *
-     * Voicemeeter Banana Channel Assignment:
+     * VoiceMeeter.Voicemeeter Banana Channel Assignment:
      *
-     *       | Strip 1 | Strip 2 | Strip 3 |             Virtual Input             |            Virtual Input AUX          |
+     *       | VoiceMeeter.VirtualMeeter.Strip 1 | VoiceMeeter.VirtualMeeter.Strip 2 | VoiceMeeter.VirtualMeeter.Strip 3 |             Virtual Input             |            Virtual Input AUX          |
      *       +----+----+----+----+----+----+----+----+----+----+----+----+----+----+----+----+----+----+----+----+----+----+
      *       | 00 | 01 | 02 | 03 | 04 | 05 | 06 | 07 | 08 | 09 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 |
      *
@@ -184,7 +184,7 @@ public interface VoicemeeterInstance extends StdCallLibrary {
     int VBVMR_GetLevel(int type, int channel, Pointer value);
 
     /**
-     * Gets MIDI message from MIDI input devices used by Voicemeeter MIDI mapping.
+     * Gets MIDI message from MIDI input devices used by VoiceMeeter.Voicemeeter MIDI mapping.
      * Not thread safe.
      *
      * @param midiBuffer Pointer for MIDI buffer. Expected messages size is below
@@ -209,8 +209,8 @@ public interface VoicemeeterInstance extends StdCallLibrary {
      * Set a 32bit float parameter.
      *
      * Example parameter names:
-     *      Strip[1].gain
-     *      Strip[0].mute
+     *      VoiceMeeter.VirtualMeeter.Strip[1].gain
+     *      VoiceMeeter.VirtualMeeter.Strip[0].mute
      *      Bus[0].gain
      *      Bus[0].eq.channel[0].cell[0].gain
      *
@@ -243,7 +243,7 @@ public interface VoicemeeterInstance extends StdCallLibrary {
     /**
      * Set one or several parameter using a script less the 48 kB. Separate
      * different assignments with ',', ';', or '\n'. See the scripts folder in the
-     * Voicemeeter Remote API pack for examples.
+     * VoiceMeeter.Voicemeeter Remote API pack for examples.
      *
      * @param paramScript ASCII string pointer containing the script.
      * @return Status code
@@ -319,11 +319,11 @@ public interface VoicemeeterInstance extends StdCallLibrary {
     //*                             VB-AUDIO CALLBACK                              *//
     //******************************************************************************//
 
-    // Command to initialize data according to SR and buffer size.
+    // VoiceMeeter.Commands.Command to initialize data according to SR and buffer size.
     // info = (VBVMR_LPT_AUDIOINFO) data
     int VBVMR_CBCOMMAND_STARTING = 1;
 
-    // Command to release data
+    // VoiceMeeter.Commands.Command to release data
     int VBVMR_CBCOMMAND_ENDING = 2;
 
     // If there is a change in audio stream, you must restart audio.
@@ -337,7 +337,7 @@ public interface VoicemeeterInstance extends StdCallLibrary {
 
     // All I/O
     // audiobuffer = (VBVMR_LPT_AUDIOBUFFER) data
-    // nnn = 1 if syncronized with Voicemeeter
+    // nnn = 1 if syncronized with VoiceMeeter.Voicemeeter
     int VBVMR_CBCOMMAND_BUFFER_MAIN = 20;
 
     // Process input insert
@@ -353,10 +353,10 @@ public interface VoicemeeterInstance extends StdCallLibrary {
      * Register your audio callback function to receive real time audio buffer.
      * It's possible to register up to three different audio callbacks in the same
      * application or in three different applications. In the same application, it
-     * is possible because Voicemeeter provides three kinds of audio streams:
-     *      - Audio Input Insert: Processes all Voicemeeter inputs as insert
-     *      - Audio Output Insert: Processes all Voicemeeter BUS outputs as insert
-     *      - All Audio I/O: Processes all Voicemeeter I/O
+     * is possible because VoiceMeeter.Voicemeeter provides three kinds of audio streams:
+     *      - Audio Input Insert: Processes all VoiceMeeter.Voicemeeter inputs as insert
+     *      - Audio Output Insert: Processes all VoiceMeeter.Voicemeeter BUS outputs as insert
+     *      - All Audio I/O: Processes all VoiceMeeter.Voicemeeter I/O
      *
      * Note: A single callback can be used to receive the three possible audio
      * streams.
@@ -389,7 +389,7 @@ public interface VoicemeeterInstance extends StdCallLibrary {
     int VBVMR_AudioCallbackStop();
 
     /**
-     * Unregister your callback and release the Voicemeeter virtual driver. This
+     * Unregister your callback and release the VoiceMeeter.Voicemeeter virtual driver. This
      * function will automatically call VBVMR_AudioCallbackStop().
      *
      * @return Status Code

@@ -1,3 +1,5 @@
+package com;
+
 import com.sun.jna.Memory;
 import com.sun.jna.Native;
 import com.sun.jna.Pointer;
@@ -7,8 +9,8 @@ import lombok.Data;
 public class Voicemeeter {
     private static VoicemeeterInstance instance;
 
-    public static String DEFAULT_VM_WINDOWS_64BIT_PATH = "C:/Program Files (x86)/VB/Voicemeeter/VoicemeeterRemote64.dll";
-    public static String DEFAULT_VM_WINDOWS_32BIT_PATH = "C:/Program Files (x86)/VB/Voicemeeter/VoicemeeterRemote.dll";
+    public static String DEFAULT_VM_WINDOWS_64BIT_PATH = "C:/Program Files (x86)/VB/VoiceMeeter/VoicemeeterRemote64.dll";
+    public static String DEFAULT_VM_WINDOWS_32BIT_PATH = "C:/Program Files (x86)/VB/VoiceMeeter/VoicemeeterRemote.dll";
 
     public static void init() {
         init(true);
@@ -33,9 +35,9 @@ public class Voicemeeter {
             case 0:
                 break;
             case 1:
-                throw new VoicemeeterException("Voicemeeter is not open");
+                throw new VoicemeeterException("VoiceMeeter.Voicemeeter is not open");
             case -1:
-                throw new VoicemeeterException("Unable to get the Voicemeeter client");
+                throw new VoicemeeterException("Unable to get the VoiceMeeter.Voicemeeter client");
             case -2:
                 throw new VoicemeeterException("Unexpected login (The client is already logged in)");
             default:
@@ -56,7 +58,7 @@ public class Voicemeeter {
             case 0:
                 break;
             case -1:
-                throw new VoicemeeterException("Voicemeeter is not installed");
+                throw new VoicemeeterException("VoiceMeeter.Voicemeeter is not installed");
             default:
                 throw new VoicemeeterException("Unexpected function return value. Function returned " + val);
         }
@@ -69,9 +71,9 @@ public class Voicemeeter {
             case 0:
                 return type.getInt(0);
             case -1:
-                throw new VoicemeeterException("Unable to get the Voicemeeter client");
+                throw new VoicemeeterException("Unable to get the VoiceMeeter.Voicemeeter client");
             case -2:
-                throw new VoicemeeterException("Unable to get the Voicemeeter server");
+                throw new VoicemeeterException("Unable to get the VoiceMeeter.Voicemeeter server");
             default:
                 throw new VoicemeeterException("Unexpected function return value. Function returned " + val);
         }
@@ -84,9 +86,9 @@ public class Voicemeeter {
             case 0:
                 return version.getInt(0);
             case -1:
-                throw new VoicemeeterException("Unable to get the Voicemeeter client");
+                throw new VoicemeeterException("Unable to get the VoiceMeeter.Voicemeeter client");
             case -2:
-                throw new VoicemeeterException("Unable to get the Voicemeeter server");
+                throw new VoicemeeterException("Unable to get the VoiceMeeter.Voicemeeter server");
             default:
                 throw new VoicemeeterException("Unexpected function return value. Function returned " + val);
         }
@@ -102,7 +104,7 @@ public class Voicemeeter {
             case -1:
                 throw new VoicemeeterException("An error has occurred");
             case -2:
-                throw new VoicemeeterException("Unable to get the Voicemeeter server");
+                throw new VoicemeeterException("Unable to get the VoiceMeeter.Voicemeeter server");
             default:
                 throw new VoicemeeterException("Unexpected function return value. Function returned " + val);
         }
@@ -119,7 +121,7 @@ public class Voicemeeter {
             case -1:
                 throw new VoicemeeterException("An error has occurred");
             case -2:
-                throw new VoicemeeterException("Unable to get the Voicemeeter server");
+                throw new VoicemeeterException("Unable to get the VoiceMeeter.Voicemeeter server");
             case -3:
                 throw new VoicemeeterException("Unknown parameter name");
             case -5:
@@ -140,7 +142,7 @@ public class Voicemeeter {
             case -1:
                 throw new VoicemeeterException("An error has occurred");
             case -2:
-                throw new VoicemeeterException("Unable to get the Voicemeeter server");
+                throw new VoicemeeterException("Unable to get the VoiceMeeter.Voicemeeter server");
             case -3:
                 throw new VoicemeeterException("Unknown parameter name");
             case -5:
@@ -161,7 +163,7 @@ public class Voicemeeter {
             case -1:
                 throw new VoicemeeterException("An error has occurred");
             case -2:
-                throw new VoicemeeterException("Unable to get the Voicemeeter server");
+                throw new VoicemeeterException("Unable to get the VoiceMeeter.Voicemeeter server");
             case -3:
                 throw new VoicemeeterException("Unknown parameter name");
             case -5:
@@ -181,7 +183,7 @@ public class Voicemeeter {
             case -1:
                 throw new VoicemeeterException("An error has occurred");
             case -2:
-                throw new VoicemeeterException("Unable to get the Voicemeeter server");
+                throw new VoicemeeterException("Unable to get the VoiceMeeter.Voicemeeter server");
             case -3:
                 throw new VoicemeeterException("No level value available");
             case -4:
@@ -199,7 +201,7 @@ public class Voicemeeter {
             case -1:
                 throw new VoicemeeterException("An error has occurred");
             case -2:
-                throw new VoicemeeterException("Unable to get the Voicemeeter server");
+                throw new VoicemeeterException("Unable to get the VoiceMeeter.Voicemeeter server");
             case -5:
             case -6:
                 throw new VoicemeeterException("No MIDI data available");
@@ -221,7 +223,7 @@ public class Voicemeeter {
             case -1:
                 throw new VoicemeeterException("An error has occurred");
             case -2:
-                throw new VoicemeeterException("Unable to get the Voicemeeter server");
+                throw new VoicemeeterException("Unable to get the VoiceMeeter.Voicemeeter server");
             case -3:
                 throw new VoicemeeterException("Unknown parameter name");
             default:
@@ -240,7 +242,7 @@ public class Voicemeeter {
             case -1:
                 throw new VoicemeeterException("An error has occurred");
             case -2:
-                throw new VoicemeeterException("Unable to get the Voicemeeter server");
+                throw new VoicemeeterException("Unable to get the VoiceMeeter.Voicemeeter server");
             case -3:
                 throw new VoicemeeterException("Unknown parameter name");
             default:
@@ -259,7 +261,7 @@ public class Voicemeeter {
             case -1:
                 throw new VoicemeeterException("An error has occurred");
             case -2:
-                throw new VoicemeeterException("Unable to get the Voicemeeter server");
+                throw new VoicemeeterException("Unable to get the VoiceMeeter.Voicemeeter server");
             case -3:
                 throw new VoicemeeterException("Unknown parameter name");
             default:
@@ -279,7 +281,7 @@ public class Voicemeeter {
             case -4:
                 throw new VoicemeeterException("An error has occurred");
             case -2:
-                throw new VoicemeeterException("Unable to get the Voicemeeter server");
+                throw new VoicemeeterException("Unable to get the VoiceMeeter.Voicemeeter server");
             default:
                 if (val > 0)
                     throw new VoicemeeterException("Script error on line " + val);
@@ -300,7 +302,7 @@ public class Voicemeeter {
             case -4:
                 throw new VoicemeeterException("An error has occurred");
             case -2:
-                throw new VoicemeeterException("Unable to get the Voicemeeter server");
+                throw new VoicemeeterException("Unable to get the VoiceMeeter.Voicemeeter server");
             default:
                 if (val > 0)
                     throw new VoicemeeterException("Script error on line " + val);

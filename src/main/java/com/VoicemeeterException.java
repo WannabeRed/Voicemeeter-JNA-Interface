@@ -1,6 +1,8 @@
+package com;
+
 /**
  * Indicates an error has occurred when trying to
- * interface with Voicemeeter.
+ * interface with VoiceMeeter.Voicemeeter.
  */
 public class VoicemeeterException extends RuntimeException {
     public VoicemeeterException() {
